@@ -1,8 +1,8 @@
 ## Overview
-A Python-based car plate scanner using OpenCV and EasyOCR. It integrates with a Laravel application via API communication, where Laravel acts as the main backend service and Python processes image-based plate scanning in the background.
+A Python-based vehicle plate scanner built using OpenCV and EasyOCR. It integrates with a Laravel application via API communication, where Laravel serves as the main backend system and the Python service handles image-based plate detection and recognition in the background. The processed results are returned to Laravel for further handling and business logic processing.
 
 ## Project Structure
-    scanner/
+    plate-scanner/
     ├── config/         # App settings loaded from .env
     ├── services/       # Camera, OCR, and Laravel API logic
     ├── utils/          # Plate validator and logger
@@ -15,7 +15,7 @@ A Python-based car plate scanner using OpenCV and EasyOCR. It integrates with a 
     pip install opencv-python easyocr python-dotenv requests
 
 ## Configuration
-Copy `.env.example` to `.env` and update the values.
+Copy `.env.example` to `.env` and update / adjust the values.
 To enable Laravel API, set `LARAVEL_ENABLED=true` and fill in the URL and token.
 
 ## Run
@@ -23,3 +23,7 @@ To enable Laravel API, set `LARAVEL_ENABLED=true` and fill in the URL and token.
 
 ## Logs
 Daily logs are saved automatically to the `logs/` folder as `YYYY-MM-DD.log`.
+
+## Notes
+The service is fully operational even without Laravel integration.
+If executed standalone, the plate detection results will be printed directly in the terminal, allowing testing and validation of the recognition pipeline.
